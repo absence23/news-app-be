@@ -1,0 +1,3 @@
+rootProject.name = 'news-hub-be'
+include 'Parsing'
+findProject(':Parsing')?.name = 'parsing'

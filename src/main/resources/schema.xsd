@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:tns="http://www.example.com/students"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/students"
+        elementFormDefault="qualified">
+    <element name="content">
+        <complexType>
+            <sequence>
+                <element name="news" type="tns:News" minOccurs="1" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="News">
+        <all>
+            <element name="title">
+                <simpleType>
+                    <restriction base="string">
+                        <whiteSpace value="collapse"/>
+                        <minLength value="1"/>
+                        <maxLength value="200"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="brief">
+                <simpleType>
+                    <restriction base="string">
+                        <whiteSpace value="collapse"/>
+                        <minLength value="1"/>
+                        <maxLength value="500"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="text">
+                <simpleType>
+                    <restriction base="string">
+                        <whiteSpace value="collapse"/>
+                        <minLength value="1"/>
+                        <maxLength value="20000"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="authors">
+                <complexType>
+                    <sequence>
+                        <element name="author" type="tns:Author" minOccurs="1" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="tags">
+                <complexType>
+                    <sequence>
+                        <element name="tag" type="tns:Tag" minOccurs="0" maxOccurs="unbounded"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+    <complexType name="Author">
+        <sequence>
+            <element name="id" type="positiveInteger"/>
+            <element name="full_name">
+                <simpleType>
+                    <restriction base="string">
+                        <minLength value="5"/>
+                        <maxLength value="50"/>
+                    </restriction>
+                </simpleType>
+            </element>
+        </sequence>
+    </complexType>
+    <complexType name="Tag">
+        <sequence>
+            <element name="id" type="positiveInteger"/>
+            <element name="name">
+                <simpleType>
+                    <restriction base="string">
+                        <minLength value="2"/>
+                        <maxLength value="20"/>
+                    </restriction>
+                </simpleType>
+            </element>
+        </sequence>
+    </complexType>
+</schema>

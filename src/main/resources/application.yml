@@ -1,0 +1,27 @@
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+  datasource:
+      url: jdbc:postgresql://localhost:5432/news-hub
+      driver-class-name: org.postgresql.Driver
+      username: postgres
+      password: root
+      sql-script-encoding: UTF-8
+      dbcp2.max-total: 32
+      dbcp2:
+        max-idle: 8
+  jpa:
+      database: POSTGRESQL
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+server:
+  servlet-path: /api
+thread:
+  pool:
+    size: 3
+content:
+  directory: C:\\Users\\Hanna_Kliukina\\IdeaProjects\\content
+timeout: 20000
+start.delay: 10000
